@@ -1,0 +1,40 @@
+schema: spec-driven
+
+context: |
+  Product: Cognify, a paid Hebrew-first web application for educators to manage
+  student test data and request a non-diagnostic placeholder assessment report.
+  Stack: Python, Django, HTMX, Tailwind CSS; uv, Ruff, mypy, import-linter,
+  Bandit, pip-audit; SQLite for local development and PostgreSQL for production.
+  Stripe is the first and only planned payment provider. Keep business logic
+  independent of Django, Stripe, cloud vendors, and concrete job runners.
+  Phase A is specification-only. Do not implement application code until the
+  human approves the Phase A artifacts. Never invent a real questionnaire,
+  diagnosis mapping, or report-generation logic.
+
+  Read openspec/constitution.md before authoring changes. Treat it as the
+  project's engineering constitution. Keep active changes unarchived until
+  implementation and verification are complete and the human approves archive.
+
+rules:
+  proposal:
+    - State user-visible behavior, scope, exclusions, and measurable acceptance criteria.
+    - Identify privacy, security, persistence, and deployment impact.
+  specs:
+    - Use normative SHALL or MUST requirements with observable Given/When/Then scenarios.
+    - Do not add questionnaire content or clinical/educational decision logic.
+  design:
+    - Record dependency direction, ports, adapters, versioned contracts, and replacement boundaries.
+    - Document assumptions, limitations, rollback, and cloud-neutral deployment choices.
+  tasks:
+    - Order work so each step has focused tests and passing quality gates before the next begins.
+    - Keep deployment separate from build verification; production deployment requires explicit approval.
+
+operations:
+  apply:
+    guidance:
+      - Do not begin application implementation until the user approves the Phase A proposal.
+      - Implement one ordered step at a time; verify it before proceeding or archiving.
+  archive:
+    guidance:
+      - Do not archive unimplemented or unverified changes.
+      - Require human approval before any production deployment.
