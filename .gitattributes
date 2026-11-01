@@ -1,0 +1,19 @@
+# Store and check out text files with LF line endings, so shell scripts
+# (e.g. scripts/build_css) run correctly in Docker and CI on Linux.
+* text=auto eol=lf
+
+# Windows-only scripts keep CRLF
+*.bat  text eol=crlf
+*.cmd  text eol=crlf
+*.ps1  text eol=crlf
+
+# Binary files – never converted
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.webp  binary
+*.pdf   binary
+*.woff  binary
+*.woff2 binary
